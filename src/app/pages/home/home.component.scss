@@ -1,0 +1,17 @@
+.home-page{
+    .application-form{
+        background-color: lightblue;
+        padding: 10px 20px;
+        border-radius: 10px;
+        .form-group{
+            padding: 10px 0px;
+        }
+        .password-validation{
+            ul{
+                li{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

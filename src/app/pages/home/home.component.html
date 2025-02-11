@@ -1,0 +1,115 @@
+<div class="home-page">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h2 class="text-center">Application</h2>
+            <div class="application-form">
+                <form [formGroup]="studenForm" (ngSubmit)="submitForm()">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Fullname"
+                            formControlName="fullName" />
+
+                        <div *ngIf=" f['fullName'].touched && f['fullName'].invalid" class="text-danger">
+                            <div *ngIf="f['fullName'].errors && f['fullName'].errors['required']" class="">FullName is
+                                required</div>
+                            <div *ngIf="f['fullName'].errors && f['fullName'].errors['minlength']" class="">Minimum 5
+                                Alphabet is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" class="form-control" placeholder="Enter Email Address"
+                            formControlName="email"/>
+                        <div *ngIf="f['email'].touched && f['email'].invalid" class="text-danger">
+                            <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required!</div>
+                            <div *ngIf="f['email'].errors && f['email'].errors['pattern']">Email Invalid</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group password-validation">
+                                <label>Password</label>
+                                <input type="text" class="form-control" placeholder="Enter Password"
+                                    formControlName="password" />
+                                <div *ngIf="f['password'].touched && f['password'].invalid" class="text-danger">
+                                    <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required!</div>
+                                    <!-- <div *ngIf="f['password'].errors && f['password'].errors['pattern']">
+                                        Invalid Formate
+                                    </div> -->
+                                    <ul>
+                                        <li *ngIf="f['password'].errors && f['password'].errors['lowercase']">{{ f['password'].errors['lowercase'] }}</li>
+                                        <li *ngIf="f['password'].errors && f['password'].errors['uppercase']">{{ f['password'].errors['uppercase'] }}</li>
+                                        <li *ngIf="f['password'].errors && f['password'].errors['number']">{{ f['password'].errors['number'] }}</li>
+                                        <li *ngIf="f['password'].errors && f['password'].errors['specialChar']">{{ f['password'].errors['specialChar'] }}</li>
+                                        <li *ngIf="f['password'].errors && f['password'].errors['minLength']">{{ f['password'].errors['minLength'] }}</li>
+                                      </ul>
+                                
+                                </div>                               
+                            </div>
+                            <!-- <input [type]="user.showPassword ? 'text' : 'password'" id="password" name="password"
+                                formControlName="password" required minlength="15" class="form-control form-control-sm"
+                                [class.is-invalid]="password.invalid && (password.dirty || password.touched)">
+                            <button type="button" class="btn btn-outline-secondary"
+                                (click)="user.showPassword = !user.showPassword">
+                                <i class="bi"
+                                    [ngClass]="{'bi-eye-fill': !user.showPassword, 'bi-eye-slash-fill': user.showPassword}"></i>
+                            </button> -->
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Phone No.</label>
+                                <input type="tel" class="form-control" placeholder="Enter Phone No."
+                                    formControlName="phone" maxlength="10" />
+                                <div *ngIf=" f['phone'].touched && f['phone'].invalid" class="text-danger">
+                                    <div *ngIf="f['phone'].errors && f['phone'].errors['required']" class="">Phone No.
+                                        is
+                                        required</div>
+                                    <div *ngIf="f['phone'].errors && f['phone'].errors['pattern']" class="">Only Number is required</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Date Of Birth</label>
+                                <input type="date" class="form-control" placeholder="Enter Date Of Birth"
+                                    formControlName="dob" />
+                                <div *ngIf=" f['dob'].touched && f['dob'].invalid" class="text-danger">
+                                    <div *ngIf="f['dob'].errors && f['dob'].errors['required']" class="">Date of Birth
+                                        is
+                                        required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Image</label>
+                                <input type="file" class="form-control" placeholder="Enter Upload Image"
+                                    formControlName="image" />
+                                    <div *ngIf=" f['image'].touched && f['image'].invalid" class="text-danger">
+                                        <div *ngIf="f['image'].errors && f['image'].errors['required']" class="">Image is
+                                            required</div>
+                                    </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" placeholder="Enter Address" formControlName="address" />
+                        <div *ngIf=" f['address'].touched && f['address'].invalid" class="text-danger">
+                            <div *ngIf="f['address'].errors && f['address'].errors['required']" class="">Address is
+                                required</div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <button type="submit" class="form-control btn btn-outline-success">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
